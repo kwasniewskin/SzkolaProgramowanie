@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Test_bazy_danych</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20220202113902_DodanieTabeliPlecMigracja.cs" />
+    <Compile Remove="Migrations\20220202113902_DodanieTabeliPlecMigracja.Designer.cs" />
+    <Compile Remove="Migrations\20220202114555_DodanieKolumnyPlecIdMigracja.cs" />
+    <Compile Remove="Migrations\20220202114555_DodanieKolumnyPlecIdMigracja.Designer.cs" />
+    <Compile Remove="Migrations\20220202114900_DodanieKolumnyPlecIdMigracja.cs" />
+    <Compile Remove="Migrations\20220202114900_DodanieKolumnyPlecIdMigracja.Designer.cs" />
+    <Compile Remove="Migrations\20220202115208_DodanieKolumnyPlecIdMigracja.cs" />
+    <Compile Remove="Migrations\20220202115208_DodanieKolumnyPlecIdMigracja.Designer.cs" />
+    <Compile Remove="Migrations\20220202115832_DodanieRelacjiPlecMigracja.cs" />
+    <Compile Remove="Migrations\20220202115832_DodanieRelacjiPlecMigracja.Designer.cs" />
+    <Compile Remove="Migrations\20220202120405_DodaniekolumnyIDPlecOsobyMigracja.cs" />
+    <Compile Remove="Migrations\20220202120405_DodaniekolumnyIDPlecOsobyMigracja.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
