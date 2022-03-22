@@ -8,7 +8,8 @@ namespace ProgramPesel
     {
         private string numerPesel;
 
-        public string Plec {
+        public string Plec
+        {
 
             get
             {
@@ -16,7 +17,8 @@ namespace ProgramPesel
             }
         }
 
-        public string PlecOpis {
+        public string PlecOpis
+        {
             get
             {
                 int plec = int.Parse(numerPesel[9].ToString());
@@ -94,20 +96,12 @@ namespace ProgramPesel
             }
         }
 
-        public int RokUrodzenia {
+        public int RokUrodzenia
+        {
 
             get
             {
-                int rok = ObliczRok(); 
-                
-                if()
-                {
-                    return 2000 + rok;
-                }
-                else
-                {
-                    return 1900 + rok;
-                }
+                return ObliczRok();
             }
         }
 
@@ -155,16 +149,16 @@ namespace ProgramPesel
             int dzien = ObliczDzien();
             int miesiac = ObliczMiesiacUrodzenia();
             int rok = ObliczRok();
-            int[] miesiace30 = {4, 6, 9, 11};
+            int[] miesiace30 = { 4, 6, 9, 11 };
 
             if (dzien < 1 || dzien > 31)
                 throw new Exception("Podany dzien jest nieprawidlowy (poza zakresem 1:31)");
 
-            for (int i=0; i<4; i++)
+            for (int i = 0; i < 4; i++)
                 if (miesiac == miesiace30[i] && dzien > 30)
                     throw new Exception("Podany dzien jest nieprawidlowy(w danym miesiacu dzien powinien miec 30 dni)");
 
-            if((rok % 4 == 0 && rok % 100 != 0) || rok % 400 == 0)
+            if ((rok % 4 == 0 && rok % 100 != 0) || rok % 400 == 0)
             {
                 if (miesiac == 2 && dzien != 29)
                     throw new Exception("Podany dzien jest nieprawidlowy (luty w roku przestepnym powinien miec 29dni)");
@@ -213,7 +207,24 @@ namespace ProgramPesel
 
         private int ObliczRok()
         {
-            return int.Parse(numerPesel.Substring(0, 2));
+            int rok = int.Parse(numerPesel.Substring(0, 2));
+            int miesiac = int.Parse(numerPesel.Substring(2, 2));
+
+            switch (miesiac / 20)
+            {
+                case 0:
+                    return 1900 + rok;
+                case 1:
+                    return 2000 + rok;
+                case 2:
+                    return 2100 + rok;
+                case 3:
+                    return 2200 + rok;
+                case 4:
+                    return 1800 + rok;
+                default:
+                    return 0;
+            }
         }
 
         private int ObliczMiesiacUrodzenia()

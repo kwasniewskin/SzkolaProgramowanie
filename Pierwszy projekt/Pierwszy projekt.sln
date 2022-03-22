@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pierwszy projekt", "Pierwszy projekt\Pierwszy projekt.csproj", "{300C4613-A5E2-49CA-961B-2F3B6BF62E1D}"
 EndProject
@@ -73,7 +73,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Baza danych", "Baza danych\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quiz", "Quiz\Quiz.csproj", "{E0A11A67-0099-4CF9-AAA6-3CB9618938E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terminarz siłownia", "Terminarz siłownia\Terminarz siłownia.csproj", "{222C73B5-162D-4118-915A-8CF746F97796}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terminarz siłownia", "Terminarz siłownia\Terminarz siłownia.csproj", "{222C73B5-162D-4118-915A-8CF746F97796}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramPesel", "ProgramPesel\ProgramPesel.csproj", "{05012601-506D-4FA5-BF19-E29861EE2EC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -185,6 +187,10 @@ Global
 		{222C73B5-162D-4118-915A-8CF746F97796}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{222C73B5-162D-4118-915A-8CF746F97796}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{222C73B5-162D-4118-915A-8CF746F97796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05012601-506D-4FA5-BF19-E29861EE2EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05012601-506D-4FA5-BF19-E29861EE2EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05012601-506D-4FA5-BF19-E29861EE2EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05012601-506D-4FA5-BF19-E29861EE2EC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -223,6 +229,7 @@ Global
 		{52B1D8A0-7BA7-4477-8C72-B13B3A1A4282} = {D88E5C85-2078-4B83-B1F8-683EB2877D75}
 		{E0A11A67-0099-4CF9-AAA6-3CB9618938E2} = {D88E5C85-2078-4B83-B1F8-683EB2877D75}
 		{222C73B5-162D-4118-915A-8CF746F97796} = {7A4ACE6A-CF20-4E31-BFB6-750B0060F747}
+		{05012601-506D-4FA5-BF19-E29861EE2EC2} = {A91D1C5F-C6DF-4EA0-BC2A-C7663A17FFA0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2DC62348-C442-45A0-B442-3212B816E6DF}
