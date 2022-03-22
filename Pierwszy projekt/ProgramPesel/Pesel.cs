@@ -55,50 +55,36 @@ namespace ProgramPesel
                 {
                     case 1:
                         return "Styczen";
-                        break;
                     case 2:
                         return "Luty";
-                        break;
                     case 3:
                         return "Marzec";
-                        break;
                     case 4:
                         return "Kwiecien";
-                        break;
                     case 5:
                         return "Maj";
-                        break;
                     case 6:
                         return "Czerwiec";
-                        break;
                     case 7:
                         return "Lipiec";
-                        break;
                     case 8:
                         return "Sierpien";
-                        break;
                     case 9:
                         return "Wrzesien";
-                        break;
                     case 10:
                         return "Pazdziernik";
-                        break;
                     case 11:
                         return "Listopad";
-                        break;
                     case 12:
                         return "Grudzien";
-                        break;
                     default:
                         return "";
-                        break;
                 }
             }
         }
 
         public int RokUrodzenia
         {
-
             get
             {
                 return ObliczRok();
@@ -109,7 +95,6 @@ namespace ProgramPesel
         {
             this.numerPesel = numerPesel;
             Walidacja();
-
         }
 
         #region Walidacja
