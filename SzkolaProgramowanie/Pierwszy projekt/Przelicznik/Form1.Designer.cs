@@ -61,7 +61,7 @@ namespace Przelicznik
             // comboBoxRodzaj
             // 
             this.comboBoxRodzaj.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxRodzaj.FormattingEnabled = true;
+            this.comboBoxRodzaj.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.comboBoxRodzaj.Location = new System.Drawing.Point(3, 19);
             this.comboBoxRodzaj.Name = "comboBoxRodzaj";
             this.comboBoxRodzaj.Size = new System.Drawing.Size(794, 23);

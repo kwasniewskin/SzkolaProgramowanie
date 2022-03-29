@@ -14,6 +14,6 @@ namespace Przelicznik.BazaDanych.Model
         public int JednostkaDocelowaId { get; set; }
         public Jednostki JednostkaDocelowa { get; set; }
 
-        public float Wartosc { get; set; }
+        public double Wartosc { get; set; }
     }
 }
