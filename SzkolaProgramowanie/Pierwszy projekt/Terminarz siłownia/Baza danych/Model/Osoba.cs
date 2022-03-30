@@ -8,5 +8,7 @@ namespace Terminarz_siłownia.Baza_danych.Model
     {
         public int Id { get; set; }
         public string Imie_Nazwisko { get; set; }
+
+        public List<Cwiczenie> Cwiczenia { get; set; }
     }
 }
