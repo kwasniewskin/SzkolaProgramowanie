@@ -36,7 +36,7 @@ namespace Przelicznik
             this.groupBoxJednostkaDocelowa = new System.Windows.Forms.GroupBox();
             this.comboBoxJednostkaDocelowa = new System.Windows.Forms.ComboBox();
             this.groupBoxWartosc = new System.Windows.Forms.GroupBox();
-            this.textBoxWartosc = new System.Windows.Forms.TextBox();
+            this.numericUpDownWartosc = new System.Windows.Forms.NumericUpDown();
             this.buttonPrzelicz = new System.Windows.Forms.Button();
             this.groupBoxWynik = new System.Windows.Forms.GroupBox();
             this.labelWynik = new System.Windows.Forms.Label();
@@ -44,6 +44,7 @@ namespace Przelicznik
             this.groupBoxJednostkaZrodlowa.SuspendLayout();
             this.groupBoxJednostkaDocelowa.SuspendLayout();
             this.groupBoxWartosc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWartosc)).BeginInit();
             this.groupBoxWynik.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@ namespace Przelicznik
             // comboBoxRodzaj
             // 
             this.comboBoxRodzaj.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxRodzaj.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRodzaj.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.comboBoxRodzaj.Location = new System.Drawing.Point(3, 19);
             this.comboBoxRodzaj.Name = "comboBoxRodzaj";
@@ -81,6 +83,7 @@ namespace Przelicznik
             // comboBoxJednostkaZrodlowa
             // 
             this.comboBoxJednostkaZrodlowa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxJednostkaZrodlowa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxJednostkaZrodlowa.FormattingEnabled = true;
             this.comboBoxJednostkaZrodlowa.Location = new System.Drawing.Point(3, 19);
             this.comboBoxJednostkaZrodlowa.Name = "comboBoxJednostkaZrodlowa";
@@ -101,6 +104,7 @@ namespace Przelicznik
             // comboBoxJednostkaDocelowa
             // 
             this.comboBoxJednostkaDocelowa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxJednostkaDocelowa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxJednostkaDocelowa.FormattingEnabled = true;
             this.comboBoxJednostkaDocelowa.Location = new System.Drawing.Point(3, 19);
             this.comboBoxJednostkaDocelowa.Name = "comboBoxJednostkaDocelowa";
@@ -109,7 +113,7 @@ namespace Przelicznik
             // 
             // groupBoxWartosc
             // 
-            this.groupBoxWartosc.Controls.Add(this.textBoxWartosc);
+            this.groupBoxWartosc.Controls.Add(this.numericUpDownWartosc);
             this.groupBoxWartosc.Controls.Add(this.buttonPrzelicz);
             this.groupBoxWartosc.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxWartosc.Location = new System.Drawing.Point(0, 182);
@@ -119,23 +123,25 @@ namespace Przelicznik
             this.groupBoxWartosc.TabStop = false;
             this.groupBoxWartosc.Text = "Wartość:";
             // 
-            // textBoxWartosc
+            // numericUpDownWartosc
             // 
-            this.textBoxWartosc.Location = new System.Drawing.Point(13, 34);
-            this.textBoxWartosc.Name = "textBoxWartosc";
-            this.textBoxWartosc.Size = new System.Drawing.Size(567, 23);
-            this.textBoxWartosc.TabIndex = 1;
+            this.numericUpDownWartosc.DecimalPlaces = 2;
+            this.numericUpDownWartosc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numericUpDownWartosc.Location = new System.Drawing.Point(3, 19);
+            this.numericUpDownWartosc.Name = "numericUpDownWartosc";
+            this.numericUpDownWartosc.Size = new System.Drawing.Size(592, 23);
+            this.numericUpDownWartosc.TabIndex = 1;
             // 
             // buttonPrzelicz
             // 
-            this.buttonPrzelicz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPrzelicz.Location = new System.Drawing.Point(586, 22);
+            this.buttonPrzelicz.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonPrzelicz.Location = new System.Drawing.Point(595, 19);
             this.buttonPrzelicz.Name = "buttonPrzelicz";
-            this.buttonPrzelicz.Size = new System.Drawing.Size(202, 50);
+            this.buttonPrzelicz.Size = new System.Drawing.Size(202, 56);
             this.buttonPrzelicz.TabIndex = 0;
             this.buttonPrzelicz.Text = "Przelicz";
             this.buttonPrzelicz.UseVisualStyleBackColor = true;
+            this.buttonPrzelicz.Click += new System.EventHandler(this.buttonPrzelicz_Click);
             // 
             // groupBoxWynik
             // 
@@ -174,7 +180,7 @@ namespace Przelicznik
             this.groupBoxJednostkaZrodlowa.ResumeLayout(false);
             this.groupBoxJednostkaDocelowa.ResumeLayout(false);
             this.groupBoxWartosc.ResumeLayout(false);
-            this.groupBoxWartosc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWartosc)).EndInit();
             this.groupBoxWynik.ResumeLayout(false);
             this.groupBoxWynik.PerformLayout();
             this.ResumeLayout(false);
@@ -192,8 +198,8 @@ namespace Przelicznik
         private System.Windows.Forms.GroupBox groupBoxWartosc;
         private System.Windows.Forms.Button buttonPrzelicz;
         private System.Windows.Forms.GroupBox groupBoxWynik;
-        private System.Windows.Forms.TextBox textBoxWartosc;
         private System.Windows.Forms.Label labelWynik;
+        private System.Windows.Forms.NumericUpDown numericUpDownWartosc;
     }
 }
 

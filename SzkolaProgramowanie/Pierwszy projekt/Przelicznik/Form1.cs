@@ -1,4 +1,5 @@
-﻿using Przelicznik.BazaDanych.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Przelicznik.BazaDanych.Context;
 using Przelicznik.BazaDanych.Model;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,81 @@ namespace Przelicznik
             bazaDanych = new DataBaseContext();
 
             //UzupelnianieBazyDanych();
+
+            LadowanieRodzajowDoComboBox();
+            LadowanieJednostekZrodlowychDlaRodzaju();
+            LadowanieJednostekDocelowychDlaRodzaju();
         }
+
+        private void buttonPrzelicz_Click(object sender, EventArgs e)
+        {
+            double wartosc = (double)numericUpDownWartosc.Value;
+
+            Jednostki jednostkaZrodlowa = comboBoxJednostkaZrodlowa.SelectedItem as Jednostki;
+            int jednostkaZrodlowaId = jednostkaZrodlowa.Id;
+
+            Jednostki jednostkaDocelowa = comboBoxJednostkaDocelowa.SelectedItem as Jednostki;
+            int jednostkaDocelowaId = jednostkaDocelowa.Id;
+
+            double przelicznik;
+
+            if(jednostkaZrodlowaId == jednostkaDocelowaId)
+            {
+                przelicznik = 1;
+            }
+            else
+            {
+                przelicznik = bazaDanych.Przeliczniki
+                    .Where((Przeliczniki p) => p.JednostkaZrodlowaId == jednostkaZrodlowaId &&
+                                                p.JednostkaDocelowaId == jednostkaDocelowaId)
+                    .Select((Przeliczniki p) => p.Wartosc)
+                    .FirstOrDefault();
+            }
+
+            string znak = bazaDanych.Jednostki
+                .Where((Jednostki j) => j.Id == jednostkaDocelowaId)
+                .Select((Jednostki j) => j.Symbol)
+                .FirstOrDefault();
+
+            double wynik = wartosc * przelicznik;
+
+            labelWynik.Text = "Wynik: " + wynik.ToString() + " " + znak;
+        }
+
+        #region Ladodwanie danych do combobox
+        private void LadowanieJednostekDocelowychDlaRodzaju()
+        {
+            Rodzaj rodzaj = comboBoxRodzaj.SelectedItem as Rodzaj;
+            int rodzajId = rodzaj.Id;
+
+            var listaWynikowa = bazaDanych.Jednostki
+                .Where((Jednostki j) => j.RodzajId == rodzajId)
+                .ToList();
+
+            comboBoxJednostkaDocelowa.DataSource = listaWynikowa;
+            comboBoxJednostkaDocelowa.DisplayMember = "Nazwa";
+        }
+
+        private void LadowanieJednostekZrodlowychDlaRodzaju()
+        {
+            Rodzaj rodzaj = comboBoxRodzaj.SelectedItem as Rodzaj;
+            int rodzajId = rodzaj.Id;
+
+            var listaWynikowa = bazaDanych.Jednostki
+                .Where((Jednostki j) => j.RodzajId == rodzajId)
+                .ToList();
+
+            comboBoxJednostkaZrodlowa.DataSource = listaWynikowa;
+            comboBoxJednostkaZrodlowa.DisplayMember = "Nazwa";
+        }
+
+        private void LadowanieRodzajowDoComboBox()
+        {
+            List<Rodzaj> rodzaj = bazaDanych.Rodzaj.ToList();
+            comboBoxRodzaj.DataSource = rodzaj;
+            comboBoxRodzaj.DisplayMember = "Nazwa";
+        }
+        #endregion
 
         #region Uzupelnianie Bazy Danych
         private void UzupelnianieBazyDanych()
@@ -71,6 +146,8 @@ namespace Przelicznik
             bazaDanych.Przeliczniki.Add(przeliczniki);
             bazaDanych.SaveChanges();
         }
+
         #endregion
+
     }
 }
