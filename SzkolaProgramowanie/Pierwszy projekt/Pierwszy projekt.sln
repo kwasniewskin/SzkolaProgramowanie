@@ -77,7 +77,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terminarz siłownia", "Term
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgramPesel", "ProgramPesel\ProgramPesel.csproj", "{05012601-506D-4FA5-BF19-E29861EE2EC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Przelicznik", "Przelicznik\Przelicznik.csproj", "{94D0553B-DEA7-4738-8EB5-CB23436B38CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Przelicznik", "Przelicznik\Przelicznik.csproj", "{94D0553B-DEA7-4738-8EB5-CB23436B38CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplikacjaUczniowie", "AplikacjaUczniowie\AplikacjaUczniowie.csproj", "{32E6C290-BDA8-4F05-942A-08E040258DA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -197,6 +199,10 @@ Global
 		{94D0553B-DEA7-4738-8EB5-CB23436B38CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94D0553B-DEA7-4738-8EB5-CB23436B38CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94D0553B-DEA7-4738-8EB5-CB23436B38CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32E6C290-BDA8-4F05-942A-08E040258DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32E6C290-BDA8-4F05-942A-08E040258DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32E6C290-BDA8-4F05-942A-08E040258DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32E6C290-BDA8-4F05-942A-08E040258DA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -237,6 +243,7 @@ Global
 		{222C73B5-162D-4118-915A-8CF746F97796} = {7A4ACE6A-CF20-4E31-BFB6-750B0060F747}
 		{05012601-506D-4FA5-BF19-E29861EE2EC2} = {A91D1C5F-C6DF-4EA0-BC2A-C7663A17FFA0}
 		{94D0553B-DEA7-4738-8EB5-CB23436B38CC} = {7A4ACE6A-CF20-4E31-BFB6-750B0060F747}
+		{32E6C290-BDA8-4F05-942A-08E040258DA6} = {7A4ACE6A-CF20-4E31-BFB6-750B0060F747}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2DC62348-C442-45A0-B442-3212B816E6DF}
