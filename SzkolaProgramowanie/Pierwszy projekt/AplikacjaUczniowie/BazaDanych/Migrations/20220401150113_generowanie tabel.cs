@@ -2,7 +2,7 @@
 
 namespace AplikacjaUczniowie.BazaDanych.Migrations
 {
-    public partial class tworzenietabel : Migration
+    public partial class generowanietabel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

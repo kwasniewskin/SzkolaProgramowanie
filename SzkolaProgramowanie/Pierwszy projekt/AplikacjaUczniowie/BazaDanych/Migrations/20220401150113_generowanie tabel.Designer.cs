@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AplikacjaUczniowie.BazaDanych.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20220331160850_tworzenie tabel")]
-    partial class tworzenietabel
+    [Migration("20220401150113_generowanie tabel")]
+    partial class generowanietabel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

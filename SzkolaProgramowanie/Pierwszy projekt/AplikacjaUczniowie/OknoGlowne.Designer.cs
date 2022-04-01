@@ -87,10 +87,16 @@ namespace AplikacjaUczniowie
             this.buttonSzukaj.TabIndex = 8;
             this.buttonSzukaj.Text = "Szukaj";
             this.buttonSzukaj.UseVisualStyleBackColor = true;
+            this.buttonSzukaj.Click += new System.EventHandler(this.buttonSzukaj_Click);
             // 
             // numericUpDownRok
             // 
             this.numericUpDownRok.Location = new System.Drawing.Point(417, 41);
+            this.numericUpDownRok.Maximum = new decimal(new int[] {
+            2100,
+            0,
+            0,
+            0});
             this.numericUpDownRok.Name = "numericUpDownRok";
             this.numericUpDownRok.Size = new System.Drawing.Size(120, 23);
             this.numericUpDownRok.TabIndex = 7;
@@ -176,6 +182,7 @@ namespace AplikacjaUczniowie
             this.buttonDodajKlase.TabIndex = 3;
             this.buttonDodajKlase.Text = "Dodaj klase";
             this.buttonDodajKlase.UseVisualStyleBackColor = true;
+            this.buttonDodajKlase.Click += new System.EventHandler(this.buttonDodajKlase_Click);
             // 
             // buttonUsun
             // 
@@ -206,6 +213,7 @@ namespace AplikacjaUczniowie
             this.buttonDodaj.TabIndex = 0;
             this.buttonDodaj.Text = "Dodaj";
             this.buttonDodaj.UseVisualStyleBackColor = true;
+            this.buttonDodaj.Click += new System.EventHandler(this.buttonDodaj_Click);
             // 
             // groupBoxListaUczniow
             // 
@@ -236,24 +244,28 @@ namespace AplikacjaUczniowie
             // 
             // ColumnImie
             // 
+            this.ColumnImie.DataPropertyName = "Imie";
             this.ColumnImie.HeaderText = "Imię";
             this.ColumnImie.Name = "ColumnImie";
             this.ColumnImie.ReadOnly = true;
             // 
             // ColumnNazwisko
             // 
+            this.ColumnNazwisko.DataPropertyName = "Nazwisko";
             this.ColumnNazwisko.HeaderText = "Nazwisko";
             this.ColumnNazwisko.Name = "ColumnNazwisko";
             this.ColumnNazwisko.ReadOnly = true;
             // 
             // ColumnKlasa
             // 
+            this.ColumnKlasa.DataPropertyName = "Klasa";
             this.ColumnKlasa.HeaderText = "Klasa";
             this.ColumnKlasa.Name = "ColumnKlasa";
             this.ColumnKlasa.ReadOnly = true;
             // 
             // ColumnRokUrodzenia
             // 
+            this.ColumnRokUrodzenia.DataPropertyName = "RokUrodzenia";
             this.ColumnRokUrodzenia.HeaderText = "Rok Urodzenia";
             this.ColumnRokUrodzenia.Name = "ColumnRokUrodzenia";
             this.ColumnRokUrodzenia.ReadOnly = true;
@@ -289,10 +301,6 @@ namespace AplikacjaUczniowie
         private System.Windows.Forms.GroupBox groupBoxOperacje;
         private System.Windows.Forms.GroupBox groupBoxListaUczniow;
         private System.Windows.Forms.DataGridView dataGridViewListaUczniow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnImie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNazwisko;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnKlasa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRokUrodzenia;
         private System.Windows.Forms.Label labelKlasa;
         private System.Windows.Forms.Label labelNazwisko;
         private System.Windows.Forms.Label labelImie;
@@ -307,6 +315,10 @@ namespace AplikacjaUczniowie
         private System.Windows.Forms.Button buttonEdytuj;
         private System.Windows.Forms.Button buttonDodaj;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnImie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNazwisko;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnKlasa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRokUrodzenia;
     }
 }
 
