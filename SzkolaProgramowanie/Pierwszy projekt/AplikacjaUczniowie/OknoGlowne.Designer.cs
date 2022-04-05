@@ -193,6 +193,7 @@ namespace AplikacjaUczniowie
             this.buttonUsun.TabIndex = 2;
             this.buttonUsun.Text = "Usuń";
             this.buttonUsun.UseVisualStyleBackColor = true;
+            this.buttonUsun.Click += new System.EventHandler(this.buttonUsun_Click);
             // 
             // buttonEdytuj
             // 
@@ -203,6 +204,7 @@ namespace AplikacjaUczniowie
             this.buttonEdytuj.TabIndex = 1;
             this.buttonEdytuj.Text = "Edytuj";
             this.buttonEdytuj.UseVisualStyleBackColor = true;
+            this.buttonEdytuj.Click += new System.EventHandler(this.buttonEdytuj_Click);
             // 
             // buttonDodaj
             // 
