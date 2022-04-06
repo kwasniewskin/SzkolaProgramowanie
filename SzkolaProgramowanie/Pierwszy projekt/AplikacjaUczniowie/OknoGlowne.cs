@@ -87,6 +87,8 @@ namespace AplikacjaUczniowie
                 UczniowieDoWyswietlenia uczenZaznaczony = row.DataBoundItem as UczniowieDoWyswietlenia;
                 if (uczenZaznaczony != null)
                 {
+                    //Ustalanie ID ucznia na podstawie wszystkich jego danych gdyz obiekt
+                    //UczniowieDoWyswietlenia nie przechowuje ID
                     Uczen uczen = bazaDanych.Uczen
                         .Where(u => u.Imie == uczenZaznaczony.Imie
                             && u.Nazwisko == uczenZaznaczony.Nazwisko
@@ -107,6 +109,8 @@ namespace AplikacjaUczniowie
                 UczniowieDoWyswietlenia uczenZaznaczony = row.DataBoundItem as UczniowieDoWyswietlenia;
                 if (uczenZaznaczony != null)
                 {
+                    //Ustalanie ID ucznia na podstawie wszystkich jego danych gdyz obiekt
+                    //UczniowieDoWyswietlenia nie przechowuje ID
                     Uczen uczen = bazaDanych.Uczen
                         .Where(u => u.Imie == uczenZaznaczony.Imie
                             && u.Nazwisko == uczenZaznaczony.Nazwisko
@@ -114,10 +118,26 @@ namespace AplikacjaUczniowie
                             && u.Rok_urodzenia == uczenZaznaczony.RokUrodzenia)
                         .FirstOrDefault();
 
-                    OknoEdytuj oknoEdytuj = new OknoEdytuj(/*uczen*/);
+                    List<object> DaneUcznia = new List<object>();
+                    DaneUcznia.Add(uczenZaznaczony.Imie);
+                    DaneUcznia.Add(uczenZaznaczony.Nazwisko);
+                    DaneUcznia.Add(uczenZaznaczony.Klasa);
+                    DaneUcznia.Add(uczenZaznaczony.RokUrodzenia);
+
+                    OknoEdytuj oknoEdytuj = new OknoEdytuj(DaneUcznia);
                     if(oknoEdytuj.ShowDialog() == DialogResult.OK)
                     {
-                        //EdytujUczniaWBazie(uczen,"imie","nazwisko",klasaId,"rok");
+                        //Ustalanie ID klasy po nazwie
+                        int klasaId = bazaDanych.Klasa
+                            .Where(k => k.Nazwa == oknoEdytuj.KlasaNazwa)
+                            .Select(k => k.Id)
+                            .FirstOrDefault();
+
+                        EdytujUczniaWBazie(uczen,
+                            oknoEdytuj.Imie,
+                            oknoEdytuj.Nazwisko,
+                            klasaId,
+                            oknoEdytuj.Rok);
                     }
                 }
             }
@@ -175,7 +195,7 @@ namespace AplikacjaUczniowie
 
         private void EdytujUczniaWBazie(Uczen uczen, string imie, string nazwisko, int klasaid, int rok)
         {
-            bazaDanych.Uczen.Find(uczen);
+            bazaDanych.Uczen.Find(uczen.Id);
 
             if (imie != null)
                 uczen.Imie = imie;

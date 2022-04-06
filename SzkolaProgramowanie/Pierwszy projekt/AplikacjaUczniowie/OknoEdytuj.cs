@@ -43,7 +43,13 @@ namespace AplikacjaUczniowie
         {
             get
             {
-                string klasaNazwa = comboBoxKlasa.SelectedItem.ToString();
+                int Zaznaczony = comboBoxKlasa.SelectedIndex +1;
+
+                string klasaNazwa = bazaDanych.Klasa
+                    .Where(k => k.Id == Zaznaczony)
+                    .Select(k => k.Nazwa)
+                    .FirstOrDefault();
+
                 return klasaNazwa;
             }
             set
@@ -64,27 +70,47 @@ namespace AplikacjaUczniowie
             }
         }
 
-        public OknoEdytuj(/*Uczen uczen*/)
+        public OknoEdytuj()
+        {
+            InitializeComponent();
+        }
+
+        public OknoEdytuj(List<object> DaneUczniaOknoGlowne)
         {
             InitializeComponent();
             bazaDanych = new DataBaseContext();
 
-            LadowanieKlasDoComboBoxa();
+            Imie = (string)DaneUczniaOknoGlowne[0];
+            Nazwisko = (string)DaneUczniaOknoGlowne[1];
+            KlasaNazwa = (string)DaneUczniaOknoGlowne[2];
+            Rok = (int)DaneUczniaOknoGlowne[3];
+
             LadowanieDanychEdytowanegoUcznia();
+            LadowanieKlasDoComboBoxa((string)DaneUczniaOknoGlowne[2]);
         }
 
         private void LadowanieDanychEdytowanegoUcznia()
         {
-            //textBoxImie.Text = bazaDanych
+            textBoxImie.Text = Imie;
+            textBoxNazwisko.Text = Nazwisko;
+            numericUpDownRok.Value = Rok;
         }
 
-        private void LadowanieKlasDoComboBoxa()
+        private void LadowanieKlasDoComboBoxa(string NazwaKlasy)
         {
-            var nazwyKlas = bazaDanych.Klasa
+            //Lista jest numerowana od 0 nie tak jak indexy od 1 wiec w kodzie pojawia sie
+            // +1 oraz -1
+            var Klasy = bazaDanych.Klasa
                     .ToList();
 
-            comboBoxKlasa.DataSource = nazwyKlas;
+            comboBoxKlasa.DataSource = Klasy;
             comboBoxKlasa.DisplayMember = "Nazwa";
+
+            comboBoxKlasa.SelectedIndex = bazaDanych.Klasa
+                .Where(k => k.Nazwa == NazwaKlasy)
+                .Select(k => k.Id)
+                .FirstOrDefault()
+                -1;
         }
 
         private void buttonZaktualizuj_Click(object sender, EventArgs e)
